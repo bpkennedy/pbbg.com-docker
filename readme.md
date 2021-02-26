@@ -96,7 +96,7 @@ nginx location of `root /app;` means that it will serve that.
 * The other mounted volume is the `pbbg.conf` file itself - allowing on the fly changes/refreshes.
 
 ## We don't need Laravel Sail
-Using it will make overall Deployment and Development for PBBG.com more complicated than it needs to be, place artificial restraints on us, and will cost more time than it saves. As stated on their official website:
+Using it will make overall Deployment and Development for PBBG.com more complicated than it needs to be, place artificial constraints on us, and will cost more time than it saves. As stated on their official website:
 > Laravel Sail is a light-weight command-line interface for interacting with Laravel's default Docker ***development*** (emphasis mine) environment.
  
 However, there are more complicated requirements that PBBG.com already needs than what Laravel Sail provides out of the box.
