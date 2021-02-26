@@ -1,7 +1,7 @@
 PBBG.com - Multi-Container App
 ===============
 This repo demonstrates a multi-container docker app that decouples concerns between containers for an ideal development 
-experience in a team of open source contributors with various tech and language specialties as well as easy of deployment 
+experience in a team of open source contributors with various tech and language specialties as well as ease of deployment 
 since all services and containers can more easily be moved as one/at once and restarted with a single docker command.
 
 ## Prerequisites
@@ -123,7 +123,6 @@ can (and many of us do) manage containers just fine without it.
 
 Long story short, any command that uses the `sail` binary, like:
 ```bash
-# below assumes there is only a single docker container
 ./vendor/bin/sail laravelContainer composer --version
 ./vendor/bin/sail laravelContainer composer install
 ./vendor/bin/sail laravelContainer composer require jenssegers/mongodb
@@ -161,4 +160,4 @@ to go this direction.
 5. `docker-compose up` or instead run in background with `docker-compose up -d`
 
 After everything is started, you can find the application running on `http://localhost:8000`, and the backend (API) is 
-accessible by hitting an example endpoint at `https://localhost:8000/api/tests`.
+accessible by hitting an example endpoint at `http://localhost:8000/api/tests`.
