@@ -1,11 +1,18 @@
 FROM node:lts-alpine as build-stage
-RUN mkdir -p /app
-WORKDIR /app
-ADD . /app
-RUN yarn --silent && \
-    yarn run build && \
-    yarn cache clean
 
-FROM nginx as production-stage
-RUN mkdir /app
-COPY --from=build-stage /app/dist /app
+# Set working directory
+WORKDIR /app
+
+# Copy files for package dependency installation
+COPY package.json /app
+COPY yarn.lock /app
+
+# install dependencies with frozen lockfile
+RUN yarn --frozen-lockfile
+
+# Copy in frontend files for build
+COPY . /app
+
+# Build Vue app to create /dist folder
+RUN yarn run build \
+    && yarn cache clean
