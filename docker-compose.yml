@@ -18,16 +18,14 @@ services:
   backend:
     build:
       args:
-        user: sammy
-        uid: 1000
+        user: ${ADMIN_USER}
+        uid: ${ADMIN_UID}
       context: ./backend
       dockerfile: Dockerfile
     image: pbbg-backend
     container_name: backend
     restart: on-failure
     working_dir: /var/www/
-    environment:
-      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./backend:/var/www
     depends_on:
@@ -40,11 +38,8 @@ services:
       dockerfile: Dockerfile
     image: pbbg-frontend
     container_name: frontend
-    command: tail -F anything
     restart: on-failure
     working_dir: /app
-    environment:
-      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./frontend/dist:/app
     depends_on:
@@ -57,12 +52,9 @@ services:
     container_name: proxy
     restart: on-failure
     ports:
-      - 8000:80
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+      - 80:80
     volumes:
       - ./proxy:/etc/nginx/conf.d
-      - ./frontend/dist:/app
     depends_on:
       - database
       - backend

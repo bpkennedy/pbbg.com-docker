@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "watched-build": "vue-cli-service build --watch",
     "build": "vue-cli-service build",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
